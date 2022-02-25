@@ -1,0 +1,26 @@
+vector<int> postOrder(Node* node) {
+        // code here
+        stack<Node*> st,res;
+        vector<int> v;
+        if(node==NULL) return v;
+        st.push(node);
+        
+        while(!st.empty()){
+            Node* temp;
+            temp= st.top();
+            res.push(temp);
+            st.pop();
+            if(temp->left) st.push(temp->left);
+            if(temp->right) st.push(temp->right);
+            
+        }
+        while(!res.empty()){
+            Node* t = res.top();
+            v.push_back(t->data);
+            res.pop();
+        }
+       return v;
+       
+        
+        
+    }
